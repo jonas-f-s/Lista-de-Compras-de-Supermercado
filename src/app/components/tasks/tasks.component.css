@@ -1,0 +1,60 @@
+.componentes {
+  display: flex;
+  justify-content: center;
+  margin-top: 3%;
+}
+
+.input{
+  border-radius: 10px;
+  width: 35%;
+  margin-right: 1%;
+  padding: 0.8%;
+  border: none;
+}
+
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  gap: 2%;
+  flex-wrap: wrap;
+  padding: 2%;
+}
+
+#pendente {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
+#concluido {
+  text-align: center;
+  font-weight: 400;
+  font-size: 1.7rem;
+}
+
+.pendente, .concluido {
+  width: 40%;
+  border-radius: 10px;
+  margin-top: 2%;
+  background-color: white;
+  padding: 2%;
+  font-size: 1.3rem;
+
+}
+#btnconcluir, #btnedita, #btnescluir, #btnexcluir2 {
+  margin: 1%;
+  padding: 1%;
+}
+
+.item-concluido {
+  text-decoration: line-through;
+  color: rgb(109, 109, 109);
+}
+
+@media (max-width: 768px) {
+  .pendente, .concluido {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

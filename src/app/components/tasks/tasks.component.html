@@ -1,0 +1,32 @@
+<div class="componentes">
+  <input [(ngModel)]="novoItem" class="input" placeholder="Adicione um item." type="text">
+  <button *ngIf="!editando" (click)="adicionarItem()" class="btn btn-primary" >Adicionar</button>
+  <button *ngIf="editando" (click)="atualizarItem()" class=" btn btn-primary">Atualizar</button>
+</div>
+
+
+<div class="container">
+
+  <div class="pendente">
+    <h2 id="pendente">Pendente</h2>
+    <ul>
+      <li *ngFor="let item of pendente; let i = index">
+          {{item}}
+          <button (click)="concluirItem(i)" id="btnconcluir" class="btn btn-success">Concluir</button>
+          <button (click)="editarItem(i)" id="btnedita" class="btn btn-primary">Editar</button>
+          <button (click)="excluirItem(i, 'pendente')" id="btnescluir" class="btn btn-danger">Excluir</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="concluido">
+    <h2 id="concluido">Concluido</h2>
+    <ul>
+      <li *ngFor="let item of concluido; let i = index" class="item-concluido">
+        {{item}}
+        <button (click)="excluirItem(i, 'concluido')" id="btnexcluir2" class="btn btn-danger">Excluir</button>
+      </li>
+    </ul>
+  </div>
+
+</div>
