@@ -1,9 +1,8 @@
 <div class="componentes">
-  <input [(ngModel)]="novoItem" class="input" placeholder="Adicione um item." type="text">
+  <input [(ngModel)]="novoItem" class="input" placeholder="Adicione um item." type="text" (keydown.enter)="editando ? atualizarItem() : adicionarItem()">
   <button *ngIf="!editando" (click)="adicionarItem()" class="btn btn-primary" >Adicionar</button>
   <button *ngIf="editando" (click)="atualizarItem()" class=" btn btn-primary">Atualizar</button>
 </div>
-
 
 <div class="container">
 
@@ -12,9 +11,18 @@
     <ul>
       <li *ngFor="let item of pendente; let i = index">
           {{item}}
-          <button (click)="concluirItem(i)" id="btnconcluir" class="btn btn-success">Concluir</button>
-          <button (click)="editarItem(i)" id="btnedita" class="btn btn-primary">Editar</button>
-          <button (click)="excluirItem(i, 'pendente')" id="btnescluir" class="btn btn-danger">Excluir</button>
+          <button (click)="concluirItem(i)" id="btnconcluir" class="btn btn-success">
+            Concluir
+            <span class="material-icons" style="vertical-align: middle;">check</span>
+          </button>
+          <button (click)="editarItem(i)" id="btnedita" class="btn btn-primary">
+            Editar
+            <span class="material-icons" style="vertical-align: middle;">edit</span>
+          </button>
+          <button (click)="excluirItem(i, 'pendente')" id="btnescluir" class="btn btn-danger">
+            Excluir
+            <span class="material-icons" style="vertical-align: middle;">delete</span>
+          </button>
       </li>
     </ul>
   </div>
@@ -24,7 +32,10 @@
     <ul>
       <li *ngFor="let item of concluido; let i = index" class="item-concluido">
         {{item}}
-        <button (click)="excluirItem(i, 'concluido')" id="btnexcluir2" class="btn btn-danger">Excluir</button>
+        <button (click)="excluirItem(i, 'concluido')" id="btnexcluir2" class="btn btn-danger">
+          Excluir
+          <span class="material-icons" style="vertical-align: middle;">delete</span>
+        </button>
       </li>
     </ul>
   </div>
